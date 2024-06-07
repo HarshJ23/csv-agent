@@ -16,9 +16,18 @@ csv_agent = create_csv_agent(
  llm = llm ,
  path = csv_path,
  verbose=True,
+return_intermediate_steps=True,
 agent_type=AgentType.OPENAI_FUNCTIONS,
 )
 
 
-result = csv_agent.invoke("list all the columns of the file")
-print(result)
+result = csv_agent.invoke("What is the gender distribution of the data in file?")
+
+print("Result:")
+print("Final output:" ,result['output'])
+
+intermediate_steps = result['intermediate_steps']
+query = intermediate_steps[0][0].tool_input['query']
+
+print("Intermediate steps:" , intermediate_steps)
+print("Query:", query)
