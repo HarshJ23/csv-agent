@@ -20,5 +20,5 @@ agent_type=AgentType.OPENAI_FUNCTIONS,
 )
 
 
-result = csv_agent.invoke("give the head of the database")
+result = csv_agent.invoke("list all the columns of the file")
 print(result)

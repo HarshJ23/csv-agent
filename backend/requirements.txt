@@ -1,0 +1,8 @@
+langchain
+langchain-community
+langchain-experimental
+langchain-openai
+openai
+python-dotnev
+tabulate
+pandas
