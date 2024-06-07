@@ -8,9 +8,18 @@ from dotenv import load_dotenv
 load_dotenv()  
 ai_api_key = os.getenv('OPENAI_API_KEY')
 
+# function to handle gsheet url input from user 
+def csv_url_handler(sheet_url):
+    sheet_id=sheet_url.split('/d/')[1].split('/')[0]
+    csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet=sample.csv"
+    return csv_url
+
+
+sheet_url = input("Please enter the Google Sheets URL: ")
+csv_path = csv_url_handler(sheet_url)
+
 
 llm = ChatOpenAI(model="gpt-3.5-turbo" , temperature=0 , api_key=ai_api_key)
-csv_path = "https://docs.google.com/spreadsheets/d/1v7yhbI33GK1LVryr3jEL65PD4M0pYWQIX7qFYlATtO0/gviz/tq?tqx=out:csv&sheet=sample.csv"
 
 csv_agent = create_csv_agent(
  llm = llm ,
