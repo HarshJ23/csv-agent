@@ -9,7 +9,6 @@
 - [ ] code execution sandbox
 - [ ] Data visualization image
 - [ ] Chat history 
-- [ ] Deploy 
 
 
 ### Frontend 
